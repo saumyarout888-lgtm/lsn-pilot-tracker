@@ -15,7 +15,7 @@ const VH_CFG = {
 // Default hub: each vehicle starts pointing to the DMart hub placeholder
 const INIT_HUBS = Object.keys(VH_CFG).map(id=>({
   vehicleId: id,
-  name: "DMart Hub",
+  name: "Pilot Hub",
   lat: "19.0760",
   lng: "72.8777",
   radius: "500",
@@ -227,7 +227,7 @@ function HubTab({hubs,setHubs}){
 
       {modal!==null&&(
         <Modal title={`Hub Location — ${form.vehicleId}`} onClose={()=>setModal(null)} onSave={save} saveLabel="Save Hub">
-          <Field label="Hub / Location Name" value={form.name||""} onChange={f("name")} placeholder="e.g. DMart Andheri Hub" required/>
+          <Field label="Hub / Location Name" value={form.name||""} onChange={f("name")} placeholder="e.g. Pilot Hub Andheri" required/>
 
           <div className="bg-gray-50 rounded-xl p-3 flex flex-col gap-3">
             <div className="flex items-center justify-between">
@@ -500,7 +500,7 @@ function AdminDashboard({onLogout,log,setLog,vehicles,setVehicles,roster,setRost
   ];
   return(
     <div className="w-full max-w-sm min-h-screen flex flex-col bg-white shadow-xl">
-      <Header title="Admin Panel" sub="LSN DMart Pilot" onBack={onLogout}/>
+      <Header title="Admin Panel" sub="LSN Pilot" onBack={onLogout}/>
       <div className="flex border-b border-gray-200 shrink-0">
         {tabs.map(t=>(
           <button key={t.id} onClick={()=>setTab(t.id)}
@@ -576,7 +576,7 @@ function DriverApp({onBack,addLog,hubs}){
     const entry={date:fmtD(s.shiftStart),vehicleId:s.vehicleId,type:vcfg.type,driverName:s.driverName.trim(),daName:vcfg.da?s.daName.trim():"-",shiftStart:fmtT(s.shiftStart),shiftEnd:fmtT(end),driverPresent:"Y",daPresent:vcfg.da?"Y":"-",parcels:s.parcels,mgTarget:String(vcfg.mg),mgMet:+s.parcels>=vcfg.mg?"Y":"N",charging:s.charging?"Y":"N",notes:""};
     postSheet({...entry,status:"Complete"});
     addLog(entry);
-    console.log("LSN DMart Log:",JSON.stringify(entry,null,2));
+    console.log("LSN Log:",JSON.stringify(entry,null,2));
     set({shiftEnd:end,screen:"success",error:""});
   }
 
@@ -585,7 +585,7 @@ function DriverApp({onBack,addLog,hubs}){
 
   return(
     <div className="w-full max-w-sm min-h-screen flex flex-col bg-white shadow-xl">
-      <Header title="DMart Pilot" sub="Driver App" onBack={onBack}/>
+      <Header title="Pilot Ops" sub="Driver App" onBack={onBack}/>
       <main className="flex-1 overflow-y-auto px-5 py-5 flex flex-col gap-4">
 
         {s.screen==="login"&&<>
@@ -693,7 +693,7 @@ function RoleSelect({onDriver,onAdmin}){
     <div className="w-full max-w-sm min-h-screen flex flex-col bg-white shadow-xl">
       <header className="bg-gray-900 px-5 py-5 text-center">
         <span className="text-green-400 font-black text-4xl tracking-tight">LSN</span>
-        <p className="text-white font-semibold mt-1">DMart Pilot</p>
+        <p className="text-white font-semibold mt-1">Pilot Ops</p>
         <p className="text-gray-400 text-xs">Operations Tracker</p>
       </header>
       <div className="flex-1 flex flex-col justify-center px-8 gap-5">
@@ -715,7 +715,7 @@ function RoleSelect({onDriver,onAdmin}){
           </div>
         </button>
       </div>
-      <p className="text-center text-gray-300 text-xs pb-6">LSN DMart Pilot · Apr 2026</p>
+      <p className="text-center text-gray-300 text-xs pb-6">LSN Pilot · Apr 2026</p>
     </div>
   );
 }
