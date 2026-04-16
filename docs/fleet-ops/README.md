@@ -15,6 +15,10 @@ This folder contains the full design brief. Read the docs in this order:
 | 6 | [`automation/sla-and-alerts.md`](./automation/sla-and-alerts.md) | Cron jobs, WhatsApp/telecall triggers |
 | 7 | [`dashboard-8am.md`](./dashboard-8am.md) | Admin morning-dashboard spec |
 | 8 | [`roadmap.md`](./roadmap.md) | 8-week build plan, priorities, cost ceiling |
+| 9 | [`playbooks/README.md`](./playbooks/README.md) | Index of the day-to-day playbooks for the 1–3 person team |
+| 10 | [`playbooks/daily-action-plan.md`](./playbooks/daily-action-plan.md) | Person A/B/C time-boxed checklist (07:45 → 20:00) + weekly cadence |
+| 11 | [`playbooks/linkedin-outreach.md`](./playbooks/linkedin-outreach.md) | ICP, 3-step LinkedIn sequence, cold email ("Cost per Km vs Diesel") |
+| 12 | [`playbooks/conflict-resolution.md`](./playbooks/conflict-resolution.md) | Dispute triage, 3-day no-show templates, vehicle recovery checklist |
 
 ## TL;DR stack
 
