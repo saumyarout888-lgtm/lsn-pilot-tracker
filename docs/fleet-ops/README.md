@@ -20,6 +20,16 @@ This folder contains the full design brief. Read the docs in this order:
 | 11 | [`playbooks/linkedin-outreach.md`](./playbooks/linkedin-outreach.md) | ICP, 3-step LinkedIn sequence, cold email ("Cost per Km vs Diesel") |
 | 12 | [`playbooks/conflict-resolution.md`](./playbooks/conflict-resolution.md) | Dispute triage, 3-day no-show templates, vehicle recovery checklist |
 
+### Deployable scaffolds (live code, not just docs)
+
+| Path | What it is |
+|---|---|
+| [`../../supabase/functions/attendance-ingest/index.ts`](../../supabase/functions/attendance-ingest/index.ts) | Edge Function: accepts tracker POSTs, resolves `vehicle_code → pilot_uuid`, inserts into `attendance_events` |
+| [`../../supabase/migrations/20260417_attendance_idempotency.sql`](../../supabase/migrations/20260417_attendance_idempotency.sql) | Unique minute-level index so re-posts don't duplicate |
+| [`../../supabase/functions/README.md`](../../supabase/functions/README.md) | Deploy + test instructions |
+| [`../../apps-script/Code.gs`](../../apps-script/Code.gs) | Google Apps Script webhook — Sheet append + Supabase forward |
+| [`../../apps-script/README.md`](../../apps-script/README.md) | Apps Script deploy + OAuth setup |
+
 ## TL;DR stack
 
 | Layer | Choice | Why |
