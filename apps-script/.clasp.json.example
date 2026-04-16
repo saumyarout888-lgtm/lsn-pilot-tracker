@@ -1,0 +1,12 @@
+{
+  "scriptId": "PASTE_AFTER_RUNNING_npm_run_create",
+  "rootDir": ".",
+  "fileExtension": "gs",
+  "filePushOrder": [
+    "Code.gs",
+    "Alerts.gs",
+    "WhatsApp.gs",
+    "Exotel.gs",
+    "Setup.gs"
+  ]
+}

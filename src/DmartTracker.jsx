@@ -1,8 +1,10 @@
 import { useState } from "react";
 
 // ─── CONFIG ─────────────────────────────────────────────────────────────────
-const ADMIN_PIN = "0000"; // ← change this
-const SHEET_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+// Set these via Netlify env vars (VITE_ADMIN_PIN, VITE_SHEET_URL) so you
+// don't have to edit source to change them. See apps-script/SETUP.md §4A.
+const ADMIN_PIN = import.meta.env.VITE_ADMIN_PIN || "0000";
+const SHEET_URL = import.meta.env.VITE_SHEET_URL || "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
 
 const VH_CFG = {
   "VH-01":{ type:"e3W", model:"Van+DCD",         oem:"OSM/Piaggio", vendor:"Wikilabs", mg:650, da:false },
