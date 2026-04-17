@@ -53,7 +53,7 @@ In the Apps Script editor, **Project Settings → Script properties → Add**:
 
 Save. Then from the editor's function dropdown select **`setupSheetTabs`** → **Run** → approve the OAuth prompt (Sheets access).
 
-Open your Sheet — three new tabs will be there:
+Open your Sheet — five new tabs will be there:
 
 - **Roster** — 5 rows pre-seeded (DRV-01..DRV-05). Fill in:
   - `name` (driver full name)
@@ -66,6 +66,8 @@ Open your Sheet — three new tabs will be there:
   - `agency_name` = the agency name you want on messages
   - leave `grace_min = 10`, `on_time_target_pct = 95`, `idle_min = 120`
 - **AlertLog** — don't touch; it fills itself.
+- **Leads** — **pre-populated with 30 tier-A Indian last-mile prospects** (Zepto, Blinkit, Swiggy Instamart, Licious, 1mg, Meesho, Delhivery, Udaan, Porter, etc. across 6 segments). Each row has `company`, `title` (target role), `city`, and `stage=NEW`. Person A fills in `name`/`phone`/`linkedin_url` per row as they research on LinkedIn Sales Navigator. Re-running `setupSheetTabs` will **not** clobber existing rows — it skips seed if the tab has data.
+- **Outreach** — empty touch log. Rows appear when you log a LinkedIn message / email / call against a lead.
 
 ---
 

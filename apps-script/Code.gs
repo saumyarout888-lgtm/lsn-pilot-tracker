@@ -41,6 +41,16 @@ function doPost(e) {
     return jsonOut({ ok: false, error: 'invalid json' });
   }
 
+  // Sales API multiplex: any payload with an `action` field is an API call
+  // (from src/SalesApp.jsx), not a tracker post. See Sales.gs.
+  if (payload && typeof payload.action === 'string') {
+    try {
+      return jsonOut({ ok: true, data: salesApiPost(payload) });
+    } catch (err) {
+      return jsonOut({ ok: false, error: String(err.message || err) });
+    }
+  }
+
   const supabaseResult = forwardToSupabase_(payload);
 
   try {
@@ -54,7 +64,16 @@ function doPost(e) {
   return jsonOut({ ok: true, supabase: supabaseResult });
 }
 
-function doGet() {
+function doGet(e) {
+  // Sales API reads go through GET ?action=...&table=... (simpler than POST,
+  // no CORS preflight). Anything else returns the health check.
+  if (e && e.parameter && e.parameter.action) {
+    try {
+      return jsonOut({ ok: true, data: salesApiGet(e) });
+    } catch (err) {
+      return jsonOut({ ok: false, error: String(err.message || err) });
+    }
+  }
   return jsonOut({ ok: true, service: 'lsn-pilot-tracker-webhook' });
 }
 
