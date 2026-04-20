@@ -14,12 +14,12 @@ const VH_CFG = {
   "VH-05":{ type:"e4W", model:"Van+Driver+DA",   oem:"Tata Ace EV", vendor:"Gentari",  mg:850, da:true  },
 };
 
-// Default hub: each vehicle starts pointing to the DMart hub placeholder
+// Default hub for every vehicle. Admins can override per-vehicle in the Hubs screen.
 const INIT_HUBS = Object.keys(VH_CFG).map(id=>({
   vehicleId: id,
-  name: "Pilot Hub",
-  lat: "19.0760",
-  lng: "72.8777",
+  name: "Dmart-Kurla",
+  lat: "19.088469",
+  lng: "72.886338",
   radius: "500",
 }));
 
