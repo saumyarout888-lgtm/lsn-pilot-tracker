@@ -1,8 +1,10 @@
 import { useState } from "react";
 
 // ─── CONFIG ─────────────────────────────────────────────────────────────────
-const ADMIN_PIN = "0000"; // ← change this
-const SHEET_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+// Set these via Netlify env vars (VITE_ADMIN_PIN, VITE_SHEET_URL) so you
+// don't have to edit source to change them. See apps-script/SETUP.md §4A.
+const ADMIN_PIN = import.meta.env.VITE_ADMIN_PIN || "0000";
+const SHEET_URL = import.meta.env.VITE_SHEET_URL || "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
 
 const VH_CFG = {
   "VH-01":{ type:"e3W", model:"Van+DCD",         oem:"OSM/Piaggio", vendor:"Wikilabs", mg:650, da:false },
@@ -12,12 +14,12 @@ const VH_CFG = {
   "VH-05":{ type:"e4W", model:"Van+Driver+DA",   oem:"Tata Ace EV", vendor:"Gentari",  mg:850, da:true  },
 };
 
-// Default hub: each vehicle starts pointing to the DMart hub placeholder
+// Default hub for every vehicle. Admins can override per-vehicle in the Hubs screen.
 const INIT_HUBS = Object.keys(VH_CFG).map(id=>({
   vehicleId: id,
-  name: "Pilot Hub",
-  lat: "19.0760",
-  lng: "72.8777",
+  name: "Dmart-Kurla",
+  lat: "19.088469",
+  lng: "72.886338",
   radius: "500",
 }));
 

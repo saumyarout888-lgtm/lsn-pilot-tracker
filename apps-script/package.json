@@ -1,0 +1,18 @@
+{
+  "name": "lsn-apps-script",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Google Apps Script project for the LSN pilot tracker webhook + SLA alerts.",
+  "scripts": {
+    "login":      "clasp login",
+    "create":     "clasp create --type webapp --title 'LSN Fleet Ops' --rootDir .",
+    "push":       "clasp push -f",
+    "open":       "clasp open",
+    "deploy":     "clasp deploy --description \"lsn-fleet-ops-$(date +%Y%m%d-%H%M)\"",
+    "logs":       "clasp logs --watch",
+    "setup":      "clasp run setupSheetTabs && clasp run setupTriggers"
+  },
+  "devDependencies": {
+    "@google/clasp": "^2.4.2"
+  }
+}

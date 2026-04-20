@@ -20,6 +20,21 @@ This folder contains the full design brief. Read the docs in this order:
 | 11 | [`playbooks/linkedin-outreach.md`](./playbooks/linkedin-outreach.md) | ICP, 3-step LinkedIn sequence, cold email ("Cost per Km vs Diesel") |
 | 12 | [`playbooks/conflict-resolution.md`](./playbooks/conflict-resolution.md) | Dispute triage, 3-day no-show templates, vehicle recovery checklist |
 
+### Deployable scaffolds (live code, not just docs)
+
+| Path | What it is |
+|---|---|
+| [`../../apps-script/Code.gs`](../../apps-script/Code.gs) | Tracker webhook — appends to Sheet, optional Supabase forward |
+| [`../../apps-script/Alerts.gs`](../../apps-script/Alerts.gs) | Time-triggered SLA alerts (morning digest, late-login, EOD, daily summary) |
+| [`../../apps-script/WhatsApp.gs`](../../apps-script/WhatsApp.gs) | Meta WhatsApp Cloud API wrapper (`sendTemplate_`, `sendText_`) |
+| [`../../apps-script/Exotel.gs`](../../apps-script/Exotel.gs) | Click-to-call wrapper |
+| [`../../apps-script/Setup.gs`](../../apps-script/Setup.gs) | One-time `setupSheetTabs()` + `setupTriggers()` |
+| [`../../apps-script/README.md`](../../apps-script/README.md) | Full deploy + templates + testing guide |
+| [`./retool-over-sheets.md`](./retool-over-sheets.md) | Retool 8 AM dashboard directly over Google Sheets (no DB) |
+| [`../../supabase/functions/attendance-ingest/index.ts`](../../supabase/functions/attendance-ingest/index.ts) | Optional: Supabase edge function for the day you outgrow Sheets |
+| [`../../supabase/migrations/20260417_attendance_idempotency.sql`](../../supabase/migrations/20260417_attendance_idempotency.sql) | Optional: idempotency index for Supabase |
+| [`../../supabase/functions/README.md`](../../supabase/functions/README.md) | Optional: Supabase deploy instructions |
+
 ## TL;DR stack
 
 | Layer | Choice | Why |
